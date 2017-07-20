@@ -1,5 +1,17 @@
 import turtle
 t = turtle.Pen()
+draw = "yes"
+def somefunc(x):
+    global draw
+    if x == "yes":
+        draw = "no"
+        t.up()
+    elif x == "no":
+        draw = "yes"
+        t.down()
+    else:
+        draw = "no"
+        t.up()
 def turtlefunc():
     z = raw_input("[W, A, S, D, E]")
     if z == "w":
@@ -10,22 +22,9 @@ def turtlefunc():
         t.left(45)
     if z == "d":
         t.right(45)
-    if z == "e":
-        t.down()
-    if z == "q":
-        t.up()
     if z == "quit":
         quit()
-    if z == "toggle":
-        print draw
-        if draw == "yes":
-            draw = "no"
-            t.up()
-        elif draw == "no":
-            draw = "yes"
-            t.down()
-        else:
-            draw = "no"
-            t.up()
+    if z == "q":
+        somefunc(draw)
     turtlefunc()
 turtlefunc()
